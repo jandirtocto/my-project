@@ -5,6 +5,7 @@ import HeaderRegister from '../../button/HeaderRegister';
 import Button from '../../button/Button';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ParamListBase } from '@react-navigation/native';
+import { ScreenDrawerIndex } from '../../constants/routes';
 
 interface ParamsList {
 	email: string;
@@ -58,7 +59,7 @@ export default function RegisterNumberScreen({
 				<Button
 					bolean={true}
 					dirigir={() =>
-						navigation.navigate('MyScreen', {
+						navigation.navigate(ScreenDrawerIndex, {
 							email,
 							password,
 							confirmPassword,
@@ -67,7 +68,7 @@ export default function RegisterNumberScreen({
 							phone,
 						})
 					}
-					condicion={phoneNew[0] == '9' && phone.length === 9 ? false : true}
+					//condicion={phoneNew[0] == '9' && phone.length === 9 ? false : true}
 				/>
 			</View>
 		</View>

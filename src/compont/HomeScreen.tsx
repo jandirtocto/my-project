@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, Pressable, TextInput, View } from 'react-native';
 import { ScreenRegisterUser } from '../constants/routes';
+import Home from './DrawerIndex'
 
-import { createDrawerNavigator } from '@react-navigation/drawer';
 
-const Drawer = createDrawerNavigator();
 
 const styles = StyleSheet.create({
 	view: { height: '100%', textAlign: 'center', alignItems: 'center' },
@@ -49,13 +48,7 @@ const styles = StyleSheet.create({
 export default function HomeScreen({ navigation }: any) {
 	return (
 		<View style={styles.view}>
-			<Drawer.Navigator>
-				<Drawer.Screen name='Feed' component={Feed} />
-				<Drawer.Screen name='Feed2' component={Feed} />
-				<Drawer.Screen name='Feed3' component={Feed} />
-				<Drawer.Screen name='Feed4' component={Feed} />
-				<Drawer.Screen name='Feed5' component={Feed} />
-			</Drawer.Navigator>
+			
 
 			<View style={{ height: 350, paddingTop: 200 }}>
 				<Text style={styles.text}>WELCOME!</Text>
@@ -68,14 +61,6 @@ export default function HomeScreen({ navigation }: any) {
 			<Pressable style={styles.boton}>
 				<Text style={styles.botonText}>SIGN IN</Text>
 			</Pressable>
-		</View>
-	);
-}
-
-function Feed() {
-	return (
-		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-			<Text>Feed Screen</Text>
 		</View>
 	);
 }

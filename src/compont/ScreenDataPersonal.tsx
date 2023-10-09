@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default function RegisterScreen({ navigation, route }: any) {
+export default function DataPersonal({ navigation, route }: any) {
 	//const {firstName, lastName} = route.params    ////   ejemplo en el proyecto de omar "LoginScreen"
 	const firstName: string = route.params['firstName'];
 	const lastName: string = route.params['lastName'];

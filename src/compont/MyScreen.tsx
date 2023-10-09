@@ -1,19 +1,43 @@
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text } from 'react-native';
 import Header from '../button/Header';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { ParamListBase } from '@react-navigation/native';
+import { ScreenDataPersonal } from '../constants/routes';
 
-export default function MyScreen({ navigation, route }: any) {
-	const firstName: string = route.params['firstName'];
-	const lastName: string = route.params['lastName'];
-	const phone: string = route.params['phone'];
-	const email: string = route.params['email'];
-	const password: string = route.params['password'];
 
+export default function MyScreen({navigation,route}:NativeStackScreenProps<ParamListBase>) {
+	interface ParamsList {
+		email: string;
+		password: string;
+		phone: string;
+		firstName: string;
+		lastName: string;
+	}
+	
+	const initialParams:ParamsList={
+		    email: '',
+			password: '',
+			phone: '',
+			firstName: '',
+			lastName: '',
+	}
+
+		const params = (route.params ?? initialParams) as ParamsList;
+	
+		const email = params['email'];
+		const password = params['password'];
+		const phone = params['phone'];
+		const firstName = params['firstName'];
+		const lastName = params['lastName'];
+	
 	return (
 		<View>
+    
+
 			<Header
 				dirigir={() =>
-					navigation.navigate('RegisterScreen', {
+					navigation.navigate(ScreenDataPersonal, {
 						firstName,
 						lastName,
 						phone,

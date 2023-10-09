@@ -3,10 +3,23 @@ import { View, Text, TextInput, StyleSheet } from 'react-native';
 import { useState } from 'react';
 import HeaderRegister from '../../button/HeaderRegister';
 import Button from '../../button/Button';
+import { ScreenRegisterConfirmPassword } from '../../constants/routes';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { ParamListBase } from '@react-navigation/native';
 
-export default function RegisterPasswordScreen({ navigation, route }: any) {
+interface paramList{
+	email:string
+}
+
+
+export default function RegisterPasswordScreen({ navigation, route }: NativeStackScreenProps<ParamListBase>) {
+
 	const [password, setPassword] = useState('');
-	const email: string = route.params['email'];
+	const initialParams:paramList={
+		email:''
+	}
+	const params=(route.params?? initialParams) as paramList
+	const email=params['email'];
 
 	return (
 		<View style={styles.view}>
@@ -29,12 +42,12 @@ export default function RegisterPasswordScreen({ navigation, route }: any) {
 				<Button
 					bolean={true}
 					dirigir={() =>
-						navigation.navigate('RegisterConfirmPasswordScreen', {
+						navigation.navigate(ScreenRegisterConfirmPassword, {
 							email,
 							password,
 						})
 					}
-					condicion={password.length >= 2 ? false : true}
+					//condicion={password.length >= 2 ? false : true}
 				/>
 			</View>
 		</View>

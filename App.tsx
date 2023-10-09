@@ -1,6 +1,5 @@
 import React from 'react';
 import HomeScreen from './src/compont/HomeScreen';
-import RegisterScreen from './src/compont/RegisterScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RegisterFirstNameScreen from './src/compont/form-register/RegisterFirstNameScreen';
@@ -10,49 +9,56 @@ import RegisterConfirmPassowordScreen from './src/compont/form-register/Register
 import RegisterPasswordcreen from './src/compont/form-register/RegisterPasswordScreen';
 import RegisterUserScreen from './src/compont/form-register/RegisterUserScreen';
 import MyScreen from './src/compont/MyScreen';
-import { ScreenRegisterUser } from './src/constants/routes';
-
+import { ScreenDataPersonal, ScreenDrawerIndex, ScreenHome, ScreenMy, ScreenRegisterConfirmPassword, ScreenRegisterFirstName, ScreenRegisterLastName, ScreenRegisterNumber, ScreenRegisterPassword, ScreenRegisterUser } from './src/constants/routes';
+import DraweIndex from './src/compont/DrawerIndex';
+import Mañana from './src/prueba/Mañana';
+import Tarde from './src/prueba/Tarde';
+import DataPersonal from './src/compont/ScreenDataPersonal';
+import DrawerIndex from './src/compont/DrawerIndex';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
 	return (
-		<NavigationContainer>
-			<Stack.Navigator screenOptions={{ headerShown: false }}>
+		<NavigationContainer >
+			<Stack.Navigator  screenOptions={{ headerShown: false }}>
 				<Stack.Screen
-					name='HomeScreen'
+					name={ScreenHome}
 					component={HomeScreen}
 					options={{ title: 'HomeScreen' }}
 				/>
 				<Stack.Screen
-					name='RegisterScreen'
-					component={RegisterScreen}
+					name={ScreenDataPersonal}
+					component={DataPersonal}
 					options={{ title: 'RegisterScreen' }}
 				/>
 				<Stack.Screen
-					name='RegisterFirstNameScreen'
+					name={ScreenRegisterFirstName}
 					component={RegisterFirstNameScreen}
 				/>
 				<Stack.Screen
-					name='RegisterLastNameScreen'
+					name={ScreenRegisterLastName}
 					component={RegisterLastNameScreen}
 				/>
 				<Stack.Screen
-					name='RegisterNumberScreen'
+					name={ScreenRegisterNumber}
 					component={RegisterNumberScreen}
 				/>
 				<Stack.Screen
-					name='RegisterConfirmPasswordScreen'
+					name={ScreenRegisterConfirmPassword}
 					component={RegisterConfirmPassowordScreen}
 				/>
 				<Stack.Screen
-					name='RegisterPasswordScreen'
+					name={ScreenRegisterPassword}
 					component={RegisterPasswordcreen}
 				/>
 				<Stack.Screen
 					name={ScreenRegisterUser}
 					component={RegisterUserScreen}
 				/>
-				<Stack.Screen name='MyScreen' component={MyScreen} />
+				<Stack.Screen name={ScreenMy} component={MyScreen} />
+				<Stack.Screen name ={ScreenDrawerIndex} component={DrawerIndex}/>
+				<Stack.Screen name ="Mañana" component={Mañana}/>
+				<Stack.Screen name ="Tarde" component={Tarde}/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

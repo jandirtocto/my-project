@@ -3,13 +3,29 @@ import { View, Text, TextInput, StyleSheet } from 'react-native';
 import { useState } from 'react';
 import HeaderRegister from '../../button/HeaderRegister';
 import Button from '../../button/Button';
+import { ScreenRegisterNumber } from '../../constants/routes';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { ParamListBase } from '@react-navigation/native';
 
-export default function RegisterLastNameScreen({ navigation, route }: any) {
+interface paramList{
+	email:string,
+	password:string,
+	confirmPassword:string,
+	firstName:string
+}
+export default function RegisterLastNameScreen({ navigation, route }: NativeStackScreenProps<ParamListBase>) {
 	const [lastName, setLastName] = useState('');
-	const email: string = route.params['email'];
-	const password: string = route.params['password'];
-	const confirmPassword: string = route.params['confirmPassword'];
-	const firstName: string = route.params['firstName'];
+	const initialParams:paramList={
+		email:'',
+		password:"",
+		confirmPassword:"",
+		firstName:"",
+	}
+	const params =(route.params??initialParams) as paramList
+	const email= params['email'];
+	const password= params['password'];
+	const confirmPassword= params['confirmPassword'];
+	const firstName= params['firstName'];
 
 	return (
 		<View style={styles.view}>
@@ -34,7 +50,7 @@ export default function RegisterLastNameScreen({ navigation, route }: any) {
 				<Button
 					bolean={true}
 					dirigir={() =>
-						navigation.navigate('RegisterNumberScreen', {
+						navigation.navigate(ScreenRegisterNumber, {
 							email,
 							password,
 							confirmPassword,
@@ -42,7 +58,7 @@ export default function RegisterLastNameScreen({ navigation, route }: any) {
 							lastName,
 						})
 					}
-					condicion={lastName.length >= 3 ? false : true}
+					//condicion={lastName.length >= 3 ? false : true}
 				/>
 			</View>
 		</View>

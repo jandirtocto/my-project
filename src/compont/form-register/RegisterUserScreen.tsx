@@ -3,6 +3,7 @@ import { View, Text, TextInput, StyleSheet } from 'react-native';
 import { useState } from 'react';
 import HeaderRegister from '../../button/HeaderRegister';
 import Button from '../../button/Button';
+import { ScreenRegisterPassword } from '../../constants/routes';
 
 export default function RegisterUserScreen({ navigation }: any) {
 	const [email, setEmail] = useState('');
@@ -28,9 +29,9 @@ export default function RegisterUserScreen({ navigation }: any) {
 				<Button
 					bolean={true}
 					dirigir={() =>
-						navigation.navigate('RegisterPasswordScreen', { email })
+						navigation.navigate(ScreenRegisterPassword, { email })
 					}
-					condicion={email.length >= 3 ? false : true}
+					//condicion={email.length >= 3 ? false : true}
 				/>
 			</View>
 		</View>

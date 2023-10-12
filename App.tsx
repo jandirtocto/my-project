@@ -9,22 +9,22 @@ import RegisterConfirmPassowordScreen from './src/compont/form-register/Register
 import RegisterPasswordcreen from './src/compont/form-register/RegisterPasswordScreen';
 import RegisterUserScreen from './src/compont/form-register/RegisterUserScreen';
 import MyScreen from './src/compont/MyScreen';
-import { ScreenDataPersonal, ScreenDrawerIndex, ScreenHome, ScreenMy, ScreenRegisterConfirmPassword, ScreenRegisterFirstName, ScreenRegisterLastName, ScreenRegisterNumber, ScreenRegisterPassword, ScreenRegisterUser } from './src/constants/routes';
-import DraweIndex from './src/compont/DrawerIndex';
+import { LogInScreen, ScreenDataPersonal, ScreenDrawerIndex, ScreenHome, ScreenMy, ScreenRegisterConfirmPassword, ScreenRegisterFirstName, ScreenRegisterLastName, ScreenRegisterNumber, ScreenRegisterPassword, ScreenRegisterUser } from './src/constants/routes';
 import Mañana from './src/prueba/Mañana';
 import Tarde from './src/prueba/Tarde';
 import DataPersonal from './src/compont/ScreenDataPersonal';
 import DrawerIndex from './src/compont/DrawerIndex';
+import ScreenLogIn from './src/compont/ScreenLogIn';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
 	return (
 		<NavigationContainer >
-			<Stack.Navigator  screenOptions={{ headerShown: false }}>
+			<Stack.Navigator  >
 				<Stack.Screen
 					name={ScreenHome}
 					component={HomeScreen}
-					options={{ title: 'HomeScreen' }}
+					options={{ headerShown:false}}
 				/>
 				<Stack.Screen
 					name={ScreenDataPersonal}
@@ -54,6 +54,11 @@ export default function App() {
 				<Stack.Screen
 					name={ScreenRegisterUser}
 					component={RegisterUserScreen}
+				/>
+				<Stack.Screen
+					name={LogInScreen}
+					component={ScreenLogIn}
+					options={{headerShown:false}}
 				/>
 				<Stack.Screen name={ScreenMy} component={MyScreen} />
 				<Stack.Screen name ={ScreenDrawerIndex} component={DrawerIndex}/>

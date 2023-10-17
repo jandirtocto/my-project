@@ -17,6 +17,7 @@
     "@react-navigation/native-stack": "^6.9.13",
     "expo": "~49.0.10",
     "expo-status-bar": "~1.6.0",
+    "firebase": "^10.5.0",
     "lodash": "^4.17.21",
     "react": "^18.3.0-next-fecc288b7-20221025",
     "react-dom": "18.2.0",

@@ -4,9 +4,12 @@ import { useState } from 'react';
 import HeaderRegister from '../../button/HeaderRegister';
 import Button from '../../button/Button';
 import { ScreenRegisterPassword } from '../../constants/routes';
+import { useAuth } from '../../core/application/auth/AuthProvider';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function RegisterUserScreen({ navigation }: any) {
 	const [email, setEmail] = useState('');
+	const auth = useAuth();
 
 	return (
 		<View style={styles.view}>
@@ -28,9 +31,13 @@ export default function RegisterUserScreen({ navigation }: any) {
 				<Button bolean={false} dirigir={() => navigation.goBack()} />
 				<Button
 					bolean={true}
-					dirigir={() =>
-						navigation.navigate(ScreenRegisterPassword, { email })
-					}
+					dirigir={() => {
+						if (email.length <= 5) {
+							return;
+						}
+						//navigation.navigate(ScreenRegisterPassword, { email });
+						return createUserWithEmailAndPassword(auth, email, '123456');
+					}}
 					//condicion={email.length >= 3 ? false : true}
 				/>
 			</View>

@@ -6,24 +6,30 @@ import Button from '../../button/Button';
 import { ScreenRegisterLastName } from '../../constants/routes';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ParamListBase } from '@react-navigation/native';
+import { useAuth } from '../../core/application/auth/AuthProvider';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
-
-interface paramList{
-	email:string,
-	password:string,
-	confirmPassword:string
+interface paramList {
+	email: string;
+	password: string;
+	confirmPassword: string;
 }
-export default function RegisterFirstNameScreen({ navigation, route }: NativeStackScreenProps<ParamListBase>) {
+export default function RegisterFirstNameScreen({
+	navigation,
+	route,
+}: NativeStackScreenProps<ParamListBase>) {
 	const [firstName, setFirstName] = useState('');
-const initialParams:paramList={
-	email:"",
-	password:"",
-	confirmPassword:""
-}
-const params =(route.params??initialParams) as paramList
-	const email= params['email'];
-	const password= params['password'];
-	const confirmPassword= params['confirmPassword'];
+	const initialParams: paramList = {
+		email: '',
+		password: '',
+		confirmPassword: '',
+	};
+	const params = (route.params ?? initialParams) as paramList;
+	const email = params['email'];
+	const password = params['password'];
+	const confirmPassword = params['confirmPassword'];
+
+	const auth = useAuth();
 
 	return (
 		<View style={styles.view}>
@@ -47,14 +53,14 @@ const params =(route.params??initialParams) as paramList
 				<Button bolean={false} dirigir={() => navigation.goBack()} />
 				<Button
 					bolean={true}
-					dirigir={() =>
+					dirigir={() => {
 						navigation.navigate(ScreenRegisterLastName, {
 							email,
 							password,
 							confirmPassword,
 							firstName,
-						})
-					}
+						});
+					}}
 					//condicion={firstName.length >= 3 ? false : true}
 				/>
 			</View>

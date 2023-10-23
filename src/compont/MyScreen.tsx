@@ -8,26 +8,22 @@ import { ScreenDataPersonal } from '../constants/routes';
 
 export default function MyScreen({navigation,route}:NativeStackScreenProps<ParamListBase>) {
 	interface ParamsList {
-		email: string;
+		address: string;
 		password: string;
-		phone: string;
 		firstName: string;
 		lastName: string;
 	}
-	
 	const initialParams:ParamsList={
-		    email: '',
+		    address: '',
 			password: '',
-			phone: '',
 			firstName: '',
 			lastName: '',
 	}
 
 		const params = (route.params ?? initialParams) as ParamsList;
 	
-		const email = params['email'];
+		const address = params['address'];
 		const password = params['password'];
-		const phone = params['phone'];
 		const firstName = params['firstName'];
 		const lastName = params['lastName'];
 	
@@ -40,8 +36,7 @@ export default function MyScreen({navigation,route}:NativeStackScreenProps<Param
 					navigation.navigate(ScreenDataPersonal, {
 						firstName,
 						lastName,
-						phone,
-						email,
+						address,
 						password,
 					})
 				}

@@ -2,15 +2,13 @@ import React from 'react';
 import {
 	StyleSheet,
 	Text,
-	Pressable,
 	Image,
-	TextInput,
 	View,
 	SafeAreaView,
-	StatusBar,
 } from 'react-native';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import { LogInScreen, ScreenRegisterUser } from '../constants/routes';
+import { LogInScreen, SignUpScreen } from '../constants/routes';
+import ButtonMain from '../button/ButtonMain';
 
 const styles = StyleSheet.create({
 	view: { height: '100%', textAlign: 'center', alignItems: 'center' },
@@ -25,22 +23,13 @@ const styles = StyleSheet.create({
 		borderBottomRightRadius: 10,
 	},
 	botonSignUP: {
-		backgroundColor: '#FA8501',
-		marginTop: 60,
-		width: 300,
-		height: 60,
-		justifyContent: 'center',
-		marginHorizontal: 17,
-		borderRadius: 5,
+
+		marginTop: 40,paddingHorizontal:"auto",alignItems:"center"
 	},
 	botonLogIn: {
-		backgroundColor: '#FA8501',
-		marginTop: 5,
-		width: 300,
-		height: 60,
-		justifyContent: 'center',
-		marginHorizontal: 17,
-		borderRadius: 5,
+		marginTop: 15,
+		paddingHorizontal:"auto",alignItems:"center"
+		
 	},
 	TextPrincipal: {
 		color: 'white',
@@ -49,16 +38,12 @@ const styles = StyleSheet.create({
 		textAlign: 'justify',
 		width: 230,
 		height: 420,
-		textAlign: 'center',
+		Align: 'center',
 		paddingTop: 80,
+		marginLeft:18,
 	},
-	text: { fontSize: 13, fontWeight: '400', paddingLeft: 20 },
-	textButton: {
-		color: 'white',
-		fontSize: 28,
-		fontWeight: '600',
-		textAlign: 'center',
-	},
+	text: { fontSize: 13, fontWeight: '400', paddingLeft: 20 ,paddingTop:2,marginTop:10},
+
 });
 
 export default function HomeScreen({ navigation }: any) {
@@ -75,20 +60,22 @@ export default function HomeScreen({ navigation }: any) {
 					/>
 				</View>
 				<View style={styles.contuner}>
-					<Pressable
-						style={styles.botonSignUP}
-						onPress={() => navigation.navigate(ScreenRegisterUser)}>
-						<Text style={styles.textButton}>Sign Up</Text>
-					</Pressable>
-					<View style={{ marginTop: 40, height: 90 }}>
+						<View style={styles.botonSignUP}>
+						<ButtonMain 
+						text={"Sign Up"}
+						route={() => navigation.navigate(SignUpScreen)}
+						 /> 
+						</View>
+						<View 
+						style={styles.botonLogIn}>
 						<Text style={styles.text}>Already have an account?</Text>
-						<Pressable
-							style={styles.botonLogIn}
-							onPress={() => navigation.navigate(LogInScreen)}>
-							<Text style={styles.textButton}> Log In</Text>
-						</Pressable>
-					</View>
-				</View>
+						<ButtonMain 
+						text={"Log In"}
+						route={() => navigation.navigate(LogInScreen)}/>
+						</View>
+						
+			    </View>
+
 			</View>
 		</SafeAreaView>
 	);

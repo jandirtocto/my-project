@@ -14,8 +14,7 @@ export default function DrawerIndex ({navigation,route}:any){
     
         const firstName: string = route.params['firstName'];
         const lastName: string = route.params['lastName'];
-        const phone: string = route.params['phone'];
-        const email: string = route.params['email'];
+        const address: string = route.params['address'];
         const password: string = route.params['password'];
     
         return(
@@ -35,10 +34,9 @@ export default function DrawerIndex ({navigation,route}:any){
                 text="MyScreen"
                 onPress={()=>navigation.navigate('MyScreen',{
                     firstName,
-                    email,
+                    address,
                     password,
                     lastName,
-                    phone,
                 })}
                  />
                  <ButtonItem 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 import Header from '../button/Header';
 
 const styles = StyleSheet.create({
@@ -77,8 +77,7 @@ export default function DataPersonal({ navigation, route }: any) {
 	//const {firstName, lastName} = route.params    ////   ejemplo en el proyecto de omar "LoginScreen"
 	const firstName: string = route.params['firstName'];
 	const lastName: string = route.params['lastName'];
-	const phone: string = route.params['phone'];
-	const email: string = route.params['email'];
+	const address: string = route.params['address'];
 	const password: string = route.params['password'];
 
 	return (
@@ -97,12 +96,10 @@ export default function DataPersonal({ navigation, route }: any) {
 				<Text style={styles.textTwo}>{firstName}</Text>
 				<Text style={styles.text}>Last Name </Text>
 				<Text style={styles.textTwo}>{lastName}</Text>
-				<Text style={styles.text}>Number Phone</Text>
-				<Text style={styles.textTwo}>{phone}</Text>
 				<View style={styles.viewThird}>
 					<Text style={styles.textOne}>Account info</Text>
 					<Text style={styles.text}> Email</Text>
-					<Text style={styles.textTwo}>{email}</Text>
+					<Text style={styles.textTwo}>{address}</Text>
 					<Text style={styles.text}>Password</Text>
 					<Text style={styles.textTwo}>{password}</Text>
 				</View>

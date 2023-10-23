@@ -1,6 +1,6 @@
 import React from "react"
-import {View,Text,TextInput,Image,Pressable}from "react-native"
-import { SafeAreaView } from "react-native-safe-area-context"
+import {View,Text,TextInput,Image,Pressable,SafeAreaView,StyleSheet}from "react-native"
+import ButtonMain from "../button/ButtonMain"
 
 
 
@@ -30,15 +30,22 @@ export default function ScreenLogIn({navigation}:any){
                 placeholder="burbase"
                 style={{marginTop:20,fontSize:18, fontWeight:"400", marginLeft:40}}/>
 
-                <Pressable 
-			style={{backgroundColor:"#FA8501",marginTop:50,width:300,height:60,justifyContent:"center",marginHorizontal:50,borderRadius:5}}
-
-			>
-				<Text  style={{color:"white",fontSize:28,fontWeight:"600",textAlign:"center" }} >  Log In</Text>
-			</Pressable>
+                <View 
+                style={style.counterButton}>
+                    <ButtonMain 
+                    text='Log In'
+                
+                    />
+                </View>
             </View>
         </SafeAreaView>
 
 
     )
 }
+
+const style=StyleSheet.create({
+    counterButton:{
+        marginTop: 40,paddingHorizontal:"auto",alignItems:"center"
+    }
+})

@@ -46,7 +46,7 @@ export default function App() {
  )
 	}else{
 
-		<AuthContext.Provider value={auth}>
+		return <AuthContext.Provider value={auth}>
 			<CurrentUserContext.Provider value={null}>
 				<NavigationContainer>
 					<Stack.Navigator initialRouteName='MyScreen'>

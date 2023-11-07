@@ -11,7 +11,6 @@ import {
 	ScreenMy,
 	SignUpScreen,
 } from './src/constants/routes';
-import Mañana from './src/prueba/Mañana';
 import Tarde from './src/prueba/Tarde';
 import DataPersonal from './src/compont/ScreenDataPersonal';
 import DrawerIndex from './src/compont/DrawerIndex';
@@ -71,7 +70,7 @@ export default function App() {
 						 options={{headerShown:false}}/>
 						<Stack.Screen name={ScreenMy} component={MyScreen} />
 						<Stack.Screen name={ScreenDrawerIndex} component={DrawerIndex} />
-						<Stack.Screen name='Mañana' component={Mañana} />
+
 						<Stack.Screen name='Tarde' component={Tarde} />
 					</Stack.Navigator>
 				</NavigationContainer>

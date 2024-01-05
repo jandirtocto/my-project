@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-	StyleSheet,
-	Text,
-	Image,
-	View,
-	SafeAreaView,
-} from 'react-native';
+import { StyleSheet, Text, Image, View, SafeAreaView } from 'react-native';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { LogInScreen, SignUpScreen } from '../constants/routes';
 import ButtonMain from '../button/ButtonMain';
@@ -23,13 +17,14 @@ const styles = StyleSheet.create({
 		borderBottomRightRadius: 10,
 	},
 	botonSignUP: {
-
-		marginTop: 40,paddingHorizontal:"auto",alignItems:"center"
+		marginTop: 40,
+		paddingHorizontal: 'auto',
+		alignItems: 'center',
 	},
 	botonLogIn: {
 		marginTop: 15,
-		paddingHorizontal:"auto",alignItems:"center"
-		
+		paddingHorizontal: 'auto',
+		alignItems: 'center',
 	},
 	TextPrincipal: {
 		color: 'white',
@@ -40,10 +35,15 @@ const styles = StyleSheet.create({
 		height: 420,
 		Align: 'center',
 		paddingTop: 80,
-		marginLeft:18,
+		marginLeft: 18,
 	},
-	text: { fontSize: 13, fontWeight: '400', paddingLeft: 20 ,paddingTop:2,marginTop:10},
-
+	text: {
+		fontSize: 13,
+		fontWeight: '400',
+		paddingLeft: 20,
+		paddingTop: 2,
+		marginTop: 10,
+	},
 });
 
 export default function HomeScreen({ navigation }: any) {
@@ -60,22 +60,20 @@ export default function HomeScreen({ navigation }: any) {
 					/>
 				</View>
 				<View style={styles.contuner}>
-						<View style={styles.botonSignUP}>
-						<ButtonMain 
-						text={"Sign Up"}
-						route={() => navigation.navigate(SignUpScreen)}
-						 /> 
-						</View>
-						<View 
-						style={styles.botonLogIn}>
+					<View style={styles.botonSignUP}>
+						<ButtonMain
+							text={'Sign Upssss'}
+							route={() => navigation.navigate(SignUpScreen)}
+						/>
+					</View>
+					<View style={styles.botonLogIn}>
 						<Text style={styles.text}>Already have an account?</Text>
-						<ButtonMain 
-						text={"Log In"}
-						route={() => navigation.navigate(LogInScreen)}/>
-						</View>
-						
-			    </View>
-
+						<ButtonMain
+							text={'Log In'}
+							route={() => navigation.navigate(LogInScreen)}
+						/>
+					</View>
+				</View>
 			</View>
 		</SafeAreaView>
 	);

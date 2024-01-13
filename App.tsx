@@ -35,13 +35,17 @@ export default function App() {
 			.getLocation()
 			.then((x) => {
 				console.log('User location', x);
-				//setIsLoading(false);
+				setIsLoading(false);
 			})
 			.catch((error) => {
 				console.log('error', error);
 				setIsLoading(false);
 			});
 	}, []);
+
+	useEffect(() => {
+		console.log('APP is ' + (isLoading ? 'Loading' : 'Ready'));
+	}, [isLoading]);
 
 	if (isLoading) return <Text style={{ fontSize: 80 }}>Loading</Text>;
 
